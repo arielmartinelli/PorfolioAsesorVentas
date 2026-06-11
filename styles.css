@@ -1566,6 +1566,33 @@ h1, h2, h3, h4, h5, h6 {
   .form-group-row {
     grid-template-columns: 1fr;
   }
+  /* Reduce floating card sizes on mobile to not cover the face */
+  .floating-card {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .floating-card.card-1 {
+    bottom: 20px;
+    left: -15px;
+  }
+  .floating-card.card-2 {
+    top: 20px;
+    right: -15px;
+  }
+  .floating-card-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .floating-card-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  .floating-card-info h4 {
+    font-size: 13px;
+  }
+  .floating-card-info p {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1603,5 +1630,33 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     gap: 16px;
     text-align: center;
+  }
+  /* Even smaller floating cards on very small mobile screens */
+  .floating-card {
+    padding: 8px 10px;
+    gap: 8px;
+    border-radius: var(--radius-sm);
+  }
+  .floating-card.card-1 {
+    bottom: 10px;
+    left: -10px;
+  }
+  .floating-card.card-2 {
+    top: 10px;
+    right: -10px;
+  }
+  .floating-card-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .floating-card-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+  .floating-card-info h4 {
+    font-size: 11px;
+  }
+  .floating-card-info p {
+    font-size: 9px;
   }
 }
