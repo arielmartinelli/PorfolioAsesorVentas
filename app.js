@@ -99,34 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // --- Stock Car Filter ---
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  const carCards = document.querySelectorAll('.car-card');
-
-  filterTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Set active tab
-      filterTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const filterValue = tab.getAttribute('data-filter');
-
-      // Filter cards
-      carCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filterValue === 'all' || category === filterValue) {
-          card.style.display = 'flex';
-          // Re-trigger animation
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 50);
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
 
   // --- WhatsApp Testimonials Slider ---
   const testimonials = [
@@ -267,20 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderChat(currentChatIndex);
 
 
-  // --- Direct WhatsApp Inquiry for Cars ---
-  const inquiryButtons = document.querySelectorAll('.inquiry-btn');
-  const whatsappNumber = '5491112345678'; // Asesor Phone (Argentina example)
-
-  inquiryButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const carName = btn.getAttribute('data-car');
-      const textMessage = `Hola Ariel! Vi tu portfolio web y quería consultar por el auto: *${carName}*. ¿Me podrías brindar más información sobre el estado y financiación? Gracias!`;
-      
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
-      window.open(whatsappUrl, '_blank');
-    });
-  });
-
 
   // --- Contact Form Submission & Validation ---
   const contactForm = document.getElementById('contact-form');
@@ -299,6 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Por favor, completa todos los campos requeridos.');
         return;
       }
+
+      const whatsappNumber = '5491112345678'; // Asesor Phone
 
       // Format WhatsApp string
       const leadMessage = `*NUEVO CLIENTE - WEB PORTFOLIO*\n\n` +
